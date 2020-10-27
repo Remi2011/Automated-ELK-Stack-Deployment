@@ -72,7 +72,7 @@ https://github.com/Remi2011/Automated-ELK-Stack-Deployment/blob/main/Images/Dock
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- _TODO: List the IP addresses of the machines you are monitoring_Jump-Box 13.92.47.20, Azure LB 40.87.109.135, 
 
 We have installed the following Beats on these machines:
 - _TODO: Specify which Beats you successfully installed_
