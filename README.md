@@ -88,7 +88,7 @@ In order to use the playbook, you will need to have an Ansible control node alre
 SSH into the control node and follow the steps below:
 - Copy the Filebeat-configuration.yml file to /etc/ansible/roles/files
 - Update the filebeat-configuration.yml file to include the ELK private IP in lines 1106 and 1806.
-- Run the playbook, and navigate to http://10.1.0.4.56:5601/ (ELK-VM public IP) to check that the installation worked as expected.
+- Run the playbook, and navigate to http://10.1.0.4:5601/ (ELK-VM public IP) to check that the installation worked as expected.
 
 _TODO: Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
