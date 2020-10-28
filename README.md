@@ -62,9 +62,11 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
 -It simplifies automation, lets you provision virtual hosts, cloud pl;atforms, bare-metal servers and network devices.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+-SSH into the Jump_Box-Provisioner (ssh RedAdmin@40.87.109.135)
+-Start/Attached to the ansible docker (sudo docker start sleepy_dhawan)/(sudo docker attach sleepy_dhawan)
+-/etc/ansible/roles directory and created the Elk playbook (Elk_Playbook.yml)
+-Elk_Playbook.yml in that same directory (ansible-playbook Elk_Playbook.yml)
+-SSH into the ELK-VM to verify the server is up and running.
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
