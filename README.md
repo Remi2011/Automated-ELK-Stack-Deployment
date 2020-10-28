@@ -36,7 +36,7 @@ _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdow
 | Jump Box | Gateway  | 10.0.0.1   | Ubuntu 18.04 LTS |
 | Web1     | Containe | 10.0.0.5   | Ubuntu 18.04 LTS |
 | Web2     | Container| 10.0.0.6   | Ubuntu 18.04 LTS |
-| Elk      |VM Ubuntu |            |                  |
+| Elk      |   VM     | 10.0.0.4   | Ubuntu 18.04 LTS |
 
 ### Access Policies
 
