@@ -103,4 +103,79 @@ Which file do you update to make Ansible run the playbook on a specific machine?
 How do I specify which machine to install the ELK server on versus which to install Filebeat on? I specify two separate groups in the etc/ansible/hosts file. One of the groups  will be webservers which has the IPs of the VMs that I will install Filebeat to. The other group is named elkservers which will have the IP of the VM I will install ELK to.
 Which URL do you navigate to in order to check that the ELK server is running? http://10.1.0.4:5601/
 
-_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+_As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc.
+ -------Filebeat---------
+
+- To create the filebeat-configuration.yml file: nano filebeat-configuration.yml.  Filebeat configuration file template.
+
+- To create the playbook: nano filebeat-playbook.yml
+
+  ---
+ - name: installing and launching filebeat
+	   hosts: webservers
+       become: true
+       tasks:
+
+	   - name: download filebeat deb
+  	     command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.7.1-amd64.deb
+
+	   - name: install filebeat deb
+  	     command: dpkg -i filebeat-7.7.1-amd64.deb
+
+	   - name: drop in filebeat.yml
+  	     copy:
+   	       src: ./files/filebeat-configuration.yml
+   	       dest: /etc/filebeat/filebeat.yml
+
+	   - name: enable and configure system module
+  	     command: filebeat modules enable system
+
+	   - name: setup filebeat
+  	     command: filebeat setup
+
+	   - name: start filebeat service
+  	    command: service filebeat start
+---
+-To run the playbook: ansible-playbook filebeat-playbook.yml
+
+* In order to run the playbook, you have to be in the directory the playbook is at, or give the path to it (ansible-playbook /etc/ansible/roles/filebeat-playbook.yml
+
+
+-------Metricbeat-------
+
+- To create the metricbeat-configuration.yml file: nano metricbeat-configuration.yml. For this, I used the metricbeat configuration file template.
+
+- To create the playbool: nano metricbeat-playbook.yml
+
+---
+  - name: installing and metricbeat
+    hosts: webservers
+    become: true
+    tasks:
+    
+  - name: download metricbeat deb
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.7.1-amd64.deb
+    
+  - name: install metricbeat deb
+    command: sudo dpkg -i metricbeat-7.7.1-amd64.deb
+    
+  - name: drop in metricbeat.yml
+    copy:
+      src: /etc/ansible/roles/files/metricbeat-configuration.yml
+      dest: /etc/metricbeat/metricbeat.yml
+      
+   - name: enable and configure system module
+     command: metricbeat modules enable system
+
+     
+   - name: setup metricbeat
+     command: metricbeat setup
+     
+   - name: start metricbeat service
+     command: service metricbeat start
+     
+   ---
+   
+   - To run the playbook: ansible-playbook metricbeat-playbook.yml
+   
+  -To to run playbook, you have to be in the directory of playbook, or give the path to it (ansible-playbook /etc/ansible/roles/metricbeat-playbook.yml
