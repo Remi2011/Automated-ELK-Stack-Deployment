@@ -19,10 +19,11 @@ This document contains the following details:
 
 ### Description of the Topology
 
-The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the D*mn Vulnerable Web Application.
+The main purpose of this network is to expose a load-balanced and monitored instance of DVWA, the Dmn Vulnerable Web Application.
 
 Load balancing ensures that the application will be highly functional, in addition to restricting high-traffic to the network.
 The off-loading function of a load balancer defends an organization against distributed denial-of-service (DDOS) attacks. 
+
 What is the advantage of a jump box: Jump-box are highly secured computers that are never used for non-admin tasks. -Throughout the years, jump-box has improved into an even more comprehensive/lock-down secure admin workstation to decrease the chances of hackers/malware infection.
 
 Integrating an ELK server allows users to easily monitor the vulnerable VMs for changes to the network  and system logs.
